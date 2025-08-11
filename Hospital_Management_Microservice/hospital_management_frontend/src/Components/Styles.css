@@ -1,0 +1,10 @@
+.logo-style1 {
+    font-family: 'Arial'; /* Use a clean sans-serif font */
+    font-size: 2rem; /* Adjust size as needed */
+    font-weight: 600; /* Semi-bold weight */
+    letter-spacing: 0.1em; /* Add letter spacing */
+    color: transparent;
+    background: linear-gradient(to right,black, black); /* Light to dark gray gradient */
+    -webkit-background-clip: text; /* Clip background to text */
+    background-clip: text;
+  }

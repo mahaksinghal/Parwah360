@@ -1,0 +1,45 @@
+
+/* Slides Component Styles - Keep animations only */
+
+.doctor-image:hover {
+  transform: translateY(-50%) scale(1.05) !important;
+}
+
+.hero-text-overlay {
+  animation: slideInLeft 1s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Animation for better loading experience */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.slides-container {
+  animation: fadeIn 1s ease-in;
+}
+
+/* Add subtle animations on load */
+.hero-text-overlay h1 {
+  animation: slideInLeft 1.2s ease-out;
+}
+
+.hero-text-overlay h1:nth-of-type(2) {
+  animation: slideInLeft 1.4s ease-out;
+}
+  

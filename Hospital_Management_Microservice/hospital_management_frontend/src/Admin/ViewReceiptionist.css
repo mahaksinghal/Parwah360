@@ -1,0 +1,239 @@
+/* View Receptionist Component Styles */
+.view-receptionist-container {
+  max-width: 95%;
+  margin: 1.5rem auto;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(7, 108, 234, 0.1);
+}
+
+/* Header Section */
+.receptionist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  gap: 1rem;
+}
+
+.receptionist-header h2 {
+  color: #076cea;
+  margin: 0;
+  font-weight: 700;
+  font-size: 1.4rem;
+  white-space: nowrap;
+}
+
+/* Search Container */
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  z-index: 2;
+  font-size: 0.9rem;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 12px 10px 40px;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #076cea;
+  background: white;
+  box-shadow: 0 0 0 0.2rem rgba(7, 108, 234, 0.25);
+}
+
+.search-input::placeholder {
+  color: #999;
+  font-style: italic;
+}
+
+/* Receptionist Count */
+.receptionist-count {
+  margin-bottom: 1rem;
+  text-align: right;
+}
+
+.receptionist-count p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.receptionist-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.receptionist-table th,
+.receptionist-table td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.receptionist-table th {
+  background: linear-gradient(135deg, #076cea 0%, #4dabf7 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: none;
+}
+
+.receptionist-table tbody tr {
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.receptionist-table tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.receptionist-table tbody tr:hover {
+  background-color: #e3f2fd;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(7, 108, 234, 0.15);
+}
+
+.receptionist-table td {
+  color: #333;
+  font-weight: 500;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-btn:hover {
+  background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.delete-btn:hover {
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  color: #6c757d;
+  font-style: italic;
+  padding: 2rem;
+  background-color: #f8f9fa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-receptionist-container {
+    margin: 1rem;
+    padding: 1rem;
+    max-width: none;
+  }
+  
+  .receptionist-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .receptionist-header h2 {
+    text-align: center;
+    font-size: 1.2rem;
+  }
+  
+  .search-container {
+    max-width: none;
+  }
+  
+  .receptionist-count {
+    text-align: center;
+  }
+  
+  .receptionist-table {
+    font-size: 0.8rem;
+  }
+  
+  .receptionist-table th,
+  .receptionist-table td {
+    padding: 8px 6px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    font-size: 0.75rem;
+    padding: 5px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .receptionist-table {
+    font-size: 0.75rem;
+  }
+  
+  .receptionist-table th,
+  .receptionist-table td {
+    padding: 6px 4px;
+  }
+}

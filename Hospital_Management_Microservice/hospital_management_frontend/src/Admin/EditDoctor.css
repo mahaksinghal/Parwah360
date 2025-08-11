@@ -1,0 +1,140 @@
+/* Edit Doctor Component Styles */
+
+.edit-doctor-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: 1.5rem;
+}
+
+.edit-doctor-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  border: 2px solid #076cea;
+  width: 100%;
+  max-width: 600px;
+}
+
+.edit-doctor-form h2 {
+  color: #076cea;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.4rem;
+}
+
+.edit-doctor-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.edit-doctor-form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-doctor-form .form-control {
+  height: 40px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-doctor-form .form-control:focus {
+  border-color: #076cea;
+  box-shadow: 0 0 0 0.2rem rgba(7, 108, 234, 0.25);
+  outline: none;
+}
+
+.edit-doctor-form select.form-control {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.edit-doctor-form .btn {
+  height: 45px;
+  font-weight: 600;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #076cea 0%, #4dabf7 100%);
+  border: 2px solid #076cea;
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edit-doctor-form .btn:hover {
+  background: linear-gradient(135deg, #065bb5 0%, #339af0 100%);
+  border-color: #065bb5;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(7, 108, 234, 0.3);
+}
+
+/* Grid Layout for better organization */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.form-grid .form-group.full-width {
+  grid-column: 1 / -1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-doctor-container {
+    padding: 1rem;
+  }
+  
+  .edit-doctor-form {
+    padding: 1.5rem;
+    max-width: none;
+  }
+  
+  .edit-doctor-form h2 {
+    font-size: 1.2rem;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+  }
+  
+  .edit-doctor-form .form-control {
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-doctor-container {
+    padding: 0.5rem;
+  }
+  
+  .edit-doctor-form {
+    padding: 1rem;
+  }
+  
+  .edit-doctor-form h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,226 @@
+/* AddDoctor Component Styles */
+
+.add-doctor-container {
+  max-width: 600px;
+  margin: 1rem auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(7, 108, 234, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-doctor-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #076cea 0%, #4dabf7 50%, #66c8ff 100%);
+}
+
+.add-doctor-container h3 {
+  text-align: center;
+  color: #076cea;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.add-doctor-container h3::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, #076cea, #4dabf7);
+  border-radius: 2px;
+}
+
+.doctor-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  align-items: start;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  outline: none;
+  transition: all 0.3s ease;
+  background: #ffffff;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #076cea;
+  box-shadow: 0 0 0 3px rgba(7, 108, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-group select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 0.5rem center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+  padding-right: 2.5rem;
+}
+
+.form-group input[type="file"] {
+  padding: 0.6rem 0.8rem;
+  cursor: pointer;
+  border-style: dashed;
+  border-color: #6c757d;
+  background: #f8f9fa;
+}
+
+.form-group input[type="file"]:focus,
+.form-group input[type="file"]:hover {
+  border-color: #076cea;
+  background: #e3f2fd;
+}
+
+.password-group {
+  position: relative;
+}
+
+.password-field {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-field input {
+  width: 100%;
+  padding-right: 3rem;
+}
+
+.eye-icon {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+  z-index: 2;
+}
+
+.eye-icon:hover {
+  color: #076cea;
+}
+
+.error-message {
+  color: #dc3545;
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  padding: 0.6rem 0.8rem;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid rgba(220, 53, 69, 0.2);
+  border-radius: 6px;
+  font-weight: 500;
+  grid-column: 1 / -1;
+}
+
+.submit-btn {
+  grid-column: 1 / -1;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #076cea 0%, #4dabf7 100%);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 3px 12px rgba(7, 108, 234, 0.3);
+  margin-top: 0.8rem;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #065bb5 0%, #339af0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(7, 108, 234, 0.4);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(7, 108, 234, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .add-doctor-container {
+    margin: 1rem;
+    padding: 1.5rem;
+    max-width: none;
+  }
+  
+  .add-doctor-container h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .doctor-form {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .submit-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-doctor-container {
+    margin: 0.5rem;
+    padding: 1rem;
+  }
+  
+  .add-doctor-container h3 {
+    font-size: 1.3rem;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+

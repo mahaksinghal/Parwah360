@@ -1,0 +1,289 @@
+/* ViewPatients Component Styles */
+.view-patients-container {
+  min-height: 100vh;
+  background: white;
+  padding: 2rem;
+}
+
+.patients-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.patients-title {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 2.2rem;
+  position: relative;
+}
+
+.patients-title::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.patients-table-wrapper {
+  overflow-x: auto;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  margin-top: 2rem;
+}
+
+.patients-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-size: 0.95rem;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.patients-table thead {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.patients-table thead th {
+  color: white;
+  font-weight: 600;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.patients-table tbody tr {
+  border-bottom: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.patients-table tbody tr:hover {
+  background-color: #f8f9ff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15);
+}
+
+.patients-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.patients-table tbody td {
+  padding: 1.2rem 1rem;
+  text-align: center;
+  border: none;
+  color: #495057;
+  font-weight: 500;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.patient-age {
+  background: linear-gradient(135deg, #56ab2f, #a8e6cf);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.patient-gender {
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.gender-male {
+  background: linear-gradient(135deg, #3498db, #2980b9);
+  color: white;
+}
+
+.gender-female {
+  background: linear-gradient(135deg, #e91e63, #ad1457);
+  color: white;
+}
+
+.gender-other {
+  background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+  color: white;
+}
+
+.patient-weight {
+  background: linear-gradient(135deg, #ff9500, #ffd93d);
+  color: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.patient-email {
+  color: #667eea;
+  font-weight: 500;
+}
+
+.no-patients {
+  text-align: center;
+  padding: 3rem;
+  color: #6c757d;
+  font-style: italic;
+  font-size: 1.1rem;
+}
+
+.no-patients i {
+  font-size: 3rem;
+  color: #dee2e6;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Statistics Cards */
+.patients-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .view-patients-container {
+    padding: 1rem;
+  }
+  
+  .patients-content {
+    padding: 1.5rem;
+  }
+  
+  .patients-title {
+    font-size: 1.8rem;
+  }
+  
+  .patients-table {
+    font-size: 0.8rem;
+  }
+  
+  .patients-table thead th,
+  .patients-table tbody td {
+    padding: 0.8rem 0.5rem;
+  }
+  
+  .patients-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .patients-content {
+    padding: 1rem;
+  }
+  
+  .patients-title {
+    font-size: 1.5rem;
+  }
+  
+  .patients-table {
+    font-size: 0.7rem;
+  }
+  
+  .patients-table thead th,
+  .patients-table tbody td {
+    padding: 0.6rem 0.3rem;
+  }
+  
+  .patient-age,
+  .patient-weight {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .patient-gender {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+  }
+}
+
+/* Animation */
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Custom scrollbar */
+.patients-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.patients-table-wrapper::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.patients-table-wrapper::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 4px;
+}
+
+.patients-table-wrapper::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a67d8, #6b46c1);
+}

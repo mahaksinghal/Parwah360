@@ -1,0 +1,174 @@
+/* Doctor ViewAppointments Component Styles */
+.doctor-appointments-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 2rem 0;
+}
+
+.appointments-card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 1rem;
+}
+
+.appointments-title {
+  color: #2c3e50 !important;
+  font-weight: 700 !important;
+  margin-bottom: 2rem !important;
+  text-align: center !important;
+  font-size: 2rem !important;
+  position: relative;
+}
+
+.appointments-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 2px;
+}
+
+.appointments-table {
+  border: none !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.appointments-table thead th {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border: none !important;
+  padding: 1rem 0.75rem !important;
+  text-align: center !important;
+  font-size: 0.9rem !important;
+}
+
+.appointments-table tbody tr {
+  transition: all 0.3s ease !important;
+  border: none !important;
+}
+
+.appointments-table tbody tr:hover {
+  background-color: #f8f9ff !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.15) !important;
+}
+
+.appointments-table tbody td {
+  padding: 1rem 0.75rem !important;
+  vertical-align: middle !important;
+  border: none !important;
+  border-bottom: 1px solid #e9ecef !important;
+  font-size: 0.9rem !important;
+}
+
+.status-badge {
+  padding: 0.5rem 1rem !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  border-radius: 20px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+}
+
+.bg-warning {
+  background: linear-gradient(135deg, #ffd93d, #ff9500) !important;
+  color: white !important;
+}
+
+.bg-success {
+  background: linear-gradient(135deg, #56ab2f, #a8e6cf) !important;
+  color: white !important;
+}
+
+.bg-danger {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24) !important;
+  color: white !important;
+}
+
+.btn-success {
+  background: linear-gradient(135deg, #56ab2f, #a8e6cf) !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-success:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(86, 171, 47, 0.4) !important;
+  background: linear-gradient(135deg, #4a8f2a, #95d3b5) !important;
+}
+
+.btn-danger {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24) !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+}
+
+.btn-danger:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4) !important;
+  background: linear-gradient(135deg, #ff5757, #d63320) !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2) !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+  background: linear-gradient(135deg, #5a67d8, #6b46c1) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, #95a5a6, #7f8c8d) !important;
+  border: none !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 20px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  cursor: not-allowed !important;
+}
+
+.text-success {
+  color: #27ae60 !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+.text-danger {
+  color: #e74c3c !important;
+  font-weight: 600 !important;
+  font-size: 0.9rem !important;
+}
+
+.me-2 {
+  margin-right: 0.5rem !important;
+}

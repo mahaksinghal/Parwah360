@@ -1,0 +1,114 @@
+/* Edit Receptionist Component Styles */
+
+.edit-receptionist-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 1.5rem;
+}
+
+.edit-receptionist-form {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border: 2px solid #076cea;
+  width: 100%;
+  max-width: 480px;
+}
+
+.edit-receptionist-form h2 {
+  color: #076cea;
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  font-size: 1.3rem;
+}
+
+.edit-receptionist-form .form-group {
+  margin-bottom: 1.2rem;
+}
+
+.edit-receptionist-form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.4rem;
+  display: block;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.edit-receptionist-form .form-control {
+  height: 40px;
+  border: 2px solid #e9ecef;
+  border-radius: 6px;
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-receptionist-form .form-control:focus {
+  border-color: #076cea;
+  box-shadow: 0 0 0 0.2rem rgba(7, 108, 234, 0.25);
+  outline: none;
+}
+
+.edit-receptionist-form .btn {
+  height: 40px;
+  font-weight: 600;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #076cea 0%, #4dabf7 100%);
+  border: 2px solid #076cea;
+  color: white;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.edit-receptionist-form .btn:hover {
+  background: linear-gradient(135deg, #065bb5 0%, #339af0 100%);
+  border-color: #065bb5;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(7, 108, 234, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-receptionist-container {
+    padding: 1rem;
+  }
+  
+  .edit-receptionist-form {
+    padding: 1.2rem;
+    max-width: none;
+  }
+  
+  .edit-receptionist-form h2 {
+    font-size: 1.2rem;
+  }
+  
+  .edit-receptionist-form .form-control {
+    height: 38px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .edit-receptionist-container {
+    padding: 0.5rem;
+  }
+  
+  .edit-receptionist-form {
+    padding: 1rem;
+  }
+  
+  .edit-receptionist-form h2 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+}
