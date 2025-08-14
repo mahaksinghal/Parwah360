@@ -86,12 +86,14 @@ public class PatientController {
 		}
 
 		List<AppointmentResponseDTO> responseDTOs = appointments.stream()
-				.map(appointment -> new AppointmentResponseDTO(appointment.getId(), appointment.getAppointmentDate(),
-						appointment.getDiseaseDescription(), appointment.getStatus(),
+				.map(appointment -> new AppointmentResponseDTO(
+						appointment.getId(), 
+						appointment.getAppointmentDate(),
+						appointment.getDiseaseDescription(), 
+						appointment.getStatus(),
 						(appointment.getDoctor() != null) ? appointment.getDoctor().getName() : null,
 						(appointment.getDoctor() != null && appointment.getDoctor().getSpecialization() != null)
-								? appointment.getDoctor().getSpecialization().getName()
-								: null,
+								? appointment.getDoctor().getSpecialization().getName() : null,
 						(appointment.getDoctor() != null) ? appointment.getDoctor().getPhone() : null,
 						(appointment.getDoctor() != null) ? appointment.getDoctor().getAmount() : null,
 						(appointment.getPayment() != null) ? appointment.getPayment().getPaymentstatus() : null))
@@ -111,7 +113,7 @@ public class PatientController {
 	}
 	
 	@DeleteMapping("/cancelAppointment/{appointmentId}")
-	@PreAuthorize("hasRole('ROLE_PATIENT')")
+//	@PreAuthorize("hasRole('ROLE_PATIENT')")
 	public ResponseEntity<String> cancelAppointment(@PathVariable Long appointmentId) {
 		
 			String response = appointmentService.cancelAppointment(appointmentId);

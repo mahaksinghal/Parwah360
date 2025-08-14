@@ -104,17 +104,15 @@ public class AdminController {
 	        dto.setName(name);
 	        dto.setSpecializationImage(file.getBytes()); // SAFE — this detaches it from temp file
 
-	        String response = doctorService.updateSpecialization(specializationId, dto);
+	        String response = specializationService.updateSpecialization(specializationId, dto);
 
 	        if ("Specialization updated successfully!".equals(response)) {
 	            return ResponseEntity.ok(response);
 	        } else {
 	            return ResponseEntity.badRequest().body(response);
 	        }
-	    } catch (IOException e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File processing error.");
 	    } catch (Exception e) {
-	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Server error.");
+	        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error converting image to file");
 	    }
 	}
 
@@ -142,7 +140,7 @@ public class AdminController {
 	}
 
 	@PutMapping("/updateDoctor/{id}")
-	public ResponseEntity<String> updateDoctor(@PathVariable("id") Long id, @RequestBody DoctorDTO doctorDTO) {
+	public ResponseEntity<String> updateDoctor(@PathVariable Long id, @RequestBody DoctorDTO doctorDTO) {
 		System.out.println("my custom id is " + id);
 		System.out.println("my dto is " + doctorDTO);
 

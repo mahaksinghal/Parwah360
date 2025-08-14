@@ -8,61 +8,24 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Payment {
-	 @Id
-	    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-	    private double  amount;
-	    
-	    private String paymentstatus;
-	    
-	    @OneToOne
-	    private Appointment appointment;  // Storing patient ID instead of foreign key reference
+	private double amount;
 
-	    public Long getId() {
-			return id;
-		}
+	private String paymentstatus;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@OneToOne
+	private Appointment appointment; // Storing patient ID instead of foreign key reference
 
-		public double getAmount() {
-			return amount;
-		}
-
-		public void setAmount(double amount) {
-			this.amount = amount;
-		}
-
-		public Appointment getAppointment() {
-			return appointment;
-		}
-
-		public void setAppointment(Appointment appointment) {
-			this.appointment = appointment;
-		}
-
-		public LocalDate getDate() {
-			return date;
-		}
-
-		public void setDate(LocalDate date) {
-			this.date = date;
-		}
-
-		public String getPaymentstatus() {
-			return paymentstatus;
-		}
-
-		public void setPaymentstatus(String paymentstatus) {
-			this.paymentstatus = paymentstatus;
-		}
-
-		private LocalDate date;
-
-	  
+	private LocalDate date;
 
 }

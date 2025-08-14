@@ -1,6 +1,5 @@
 package com.app.Controller;
 
-//import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.log;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,49 +28,44 @@ import lombok.extern.slf4j.Slf4j;
 @RestController
 @RequestMapping("/doctor")
 @CrossOrigin("http://localhost:3000")
-@Slf4j
 public class DoctorController {
 
 	@Autowired
 	private AppointmentService appointmentService;
-	
-	 private DoctorService doctorService;
-	 
-	 @GetMapping("/getDoctorAppointments/{doctorId}")
-	 public ResponseEntity<List<DoctorAppointmentResponseDTO>> getDoctorAppointments(@PathVariable Long doctorId) {
-	     List<Appointment> appointments = appointmentService.getAppointmentsByDoctor(doctorId);
 
-	     if (appointments.isEmpty()) {
-	         return ResponseEntity.noContent().build();
-	     }
+	// private DoctorService doctorService;
 
-	     List<DoctorAppointmentResponseDTO> responseDTOs = appointments.stream().map(appointment -> 
-	         new DoctorAppointmentResponseDTO(
-	             appointment.getId(),
-	             appointment.getAppointmentDate(),
-	             appointment.getDiseaseDescription(),
-	             appointment.getStatus(),
-	             appointment.getPatient().getId(),
-	             appointment.getPatient().getName(),
-	             appointment.getPatient().getAge(),
-	             appointment.getPatient().getGender(),
-	             appointment.getPatient().getWeight(),
-	             appointment.getPatient().getEmail()
-	         )
-	     ).collect(Collectors.toList());
+	@GetMapping("/getDoctorAppointments/{doctorId}")
+	public ResponseEntity<List<DoctorAppointmentResponseDTO>> getDoctorAppointments(@PathVariable Long doctorId) {
+		List<Appointment> appointments = appointmentService.getAppointmentsByDoctor(doctorId);
 
-	     return ResponseEntity.ok(responseDTOs);
-	 }
+		if (appointments.isEmpty()) {
+			return ResponseEntity.noContent().build();
+		}
 
+		List<DoctorAppointmentResponseDTO> responseDTOs = appointments.stream()
+				.map(appointment -> new DoctorAppointmentResponseDTO(appointment.getId(),
+						appointment.getAppointmentDate(), 
+						appointment.getDiseaseDescription(), 
+						appointment.getStatus(),
+						appointment.getPatient().getId(), 
+						appointment.getPatient().getName(),
+						appointment.getPatient().getAge(), 
+						appointment.getPatient().getGender(),
+						appointment.getPatient().getWeight(), 
+						appointment.getPatient().getEmail()))
+				.collect(Collectors.toList());
 
-	 
-	 @PutMapping("/updateStatus")
-	    public ResponseEntity<Appointment> updateAppointmentStatus(@RequestBody UpdateAppointmentStatusDTO dto) {
-	        try {
-	            Appointment updatedAppointment = appointmentService.updateAppointmentStatus(dto);
-	            return ResponseEntity.ok(updatedAppointment);
-	        } catch (RuntimeException e) {
-	            return ResponseEntity.badRequest().body(null);
-	        }
-	    }
+		return ResponseEntity.ok(responseDTOs);
+	}
+
+	@PutMapping("/updateStatus")
+	public ResponseEntity<Appointment> updateAppointmentStatus(@RequestBody UpdateAppointmentStatusDTO dto) {
+		try {
+			Appointment updatedAppointment = appointmentService.updateAppointmentStatus(dto);
+			return ResponseEntity.ok(updatedAppointment);
+		} catch (RuntimeException e) {
+			return ResponseEntity.badRequest().body(null);
+		}
+	}
 }

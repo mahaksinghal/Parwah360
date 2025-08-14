@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import "./Specialization.css";
+import "./css/Specialization.css";
 
 function Specialization() {
   const [specialities, setSpecialities] = useState([]);

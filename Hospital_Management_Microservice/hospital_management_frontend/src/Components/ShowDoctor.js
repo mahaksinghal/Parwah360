@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import "./ShowDoctor.css";
+import "./css/ShowDoctor.css";
 import CustomerNavbar from "./CustomerNavbar";
 
 function ShowDoctor() {

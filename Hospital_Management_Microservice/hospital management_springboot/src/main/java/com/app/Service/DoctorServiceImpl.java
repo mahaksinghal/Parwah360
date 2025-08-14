@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,15 +34,14 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Autowired
 	private SpecializationRepository specializationRepository;
+	
+	@Autowired
+	private ModelMapper modelMapper;
 
 	public String addDoctor(DoctorDTO doctorDTO) {
-		Doctor doctor = new Doctor();
-		doctor.setEmail(doctorDTO.getEmail());
-		doctor.setPassword(doctorDTO.getPassword());
-		doctor.setName(doctorDTO.getName());
-		doctor.setPhone(doctorDTO.getPhone());
-		doctor.setDegree(doctorDTO.getDegree());
-		doctor.setAmount(doctorDTO.getAmount());
+		
+		Doctor doctor = modelMapper.map(doctorDTO, Doctor.class);
+
 		doctor.setRole(Role.ROLE_DOCTOR); // Enum role
 
 		// Set specialization
@@ -65,10 +65,8 @@ public class DoctorServiceImpl implements DoctorService {
 	public List<DoctorDTOResponse> getAllDoctors() {
 		List<Doctor> doctors = doctorRepository.findAll();
 
-		return doctors.stream().map(doctor -> new DoctorDTOResponse(doctor.getId(), doctor.getName(), doctor.getEmail(), // Added
-																															// email
-				doctor.getPassword(), // Added password
-				doctor.getPhone(), doctor.getDegree(), doctor.getAmount(),
+		return doctors.stream().map(doctor -> new DoctorDTOResponse(doctor.getId(), doctor.getName(), 
+				doctor.getDegree(), doctor.getAmount(),
 				doctor.getSpecialization() != null ? doctor.getSpecialization().getName() : null))
 				.collect(Collectors.toList());
 	}
@@ -82,9 +80,9 @@ public class DoctorServiceImpl implements DoctorService {
 		System.out.println("Retrieved Doctor: " + doctor);
 
 		// Convert entity to DTO response
-		return new DoctorDTOResponse(doctor.getId(), doctor.getName(), doctor.getEmail(), doctor.getPassword(),
-				doctor.getPhone(), doctor.getDegree(), doctor.getAmount(),
-				doctor.getSpecialization() != null ? doctor.getSpecialization().getName() : null);
+		DoctorDTOResponse response = modelMapper.map(doctor, DoctorDTOResponse.class);
+		response.setSpecializationName(doctor.getSpecialization() != null ? doctor.getSpecialization().getName() : null);
+		return response;
 	}
 
 	public List<DoctorDtoImage> getDoctorsBySpecializationId(Long specializationId) {
@@ -125,18 +123,6 @@ public class DoctorServiceImpl implements DoctorService {
 
 	    return "Doctor updated successfully!";
 	}
-
-	@Override
-	public String updateSpecialization(Long specializationId, SpecializationDTO dto) {
-		Specialization specialization = specializationRepository.findById(specializationId)
-				.orElseThrow(()-> new RuntimeException("Specialization not found with id "+ specializationId));
-		specialization.setId(specializationId);
-		specialization.setName(dto.getName());
-		specialization.setSpecializationimage(dto.getSpecializationImage());
-		specializationRepository.save(specialization);
-		return "Specialization updated successfully!";
-	}
-
 
 
 }

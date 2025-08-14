@@ -11,7 +11,12 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.OneToMany;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Specialization {
 
 	@Id
@@ -26,38 +31,5 @@ public class Specialization {
 
 	@OneToMany(mappedBy = "specialization", cascade = CascadeType.ALL)
 	private List<Doctor> doctors;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public byte[] getSpecializationimage() {
-		return specializationimage;
-	}
-
-	public void setSpecializationimage(byte[] specializationimage) {
-		this.specializationimage = specializationimage;
-	}
-
-	public List<Doctor> getDoctors() {
-		return doctors;
-	}
-
-	public void setDoctors(List<Doctor> doctors) {
-		this.doctors = doctors;
-	}
-	
 	
 }

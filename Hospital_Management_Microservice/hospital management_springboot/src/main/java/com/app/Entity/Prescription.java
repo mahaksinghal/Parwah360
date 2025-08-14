@@ -7,7 +7,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.OneToOne;
+
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
+@Getter
+@Setter
 public class Prescription {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,50 +23,8 @@ public class Prescription {
 
 	private String type;
 
-
 	@Lob
 	private byte[] prescriptionPdf; // Doctor's notes and prescribed medicine
-
-
-	public Long getId() {
-		return id;
-	}
-
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-
-	public String getName() {
-		return name;
-	}
-
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
-	public String getType() {
-		return type;
-	}
-
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-
-	public byte[] getPrescriptionPdf() {
-		return prescriptionPdf;
-	}
-
-
-	public void setPrescriptionPdf(byte[] prescriptionPdf) {
-		this.prescriptionPdf = prescriptionPdf;
-	}
-
 
 	public Prescription(String name, String type, byte[] prescriptionPdf) {
 		super();
@@ -69,10 +33,7 @@ public class Prescription {
 		this.prescriptionPdf = prescriptionPdf;
 	}
 
-    
-    public Prescription() {
-    }
-	
-	
-	
+	public Prescription() {
+	}
+
 }

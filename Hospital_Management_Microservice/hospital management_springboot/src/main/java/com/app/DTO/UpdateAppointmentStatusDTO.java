@@ -1,28 +1,15 @@
 package com.app.DTO;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class UpdateAppointmentStatusDTO {
-	 private Long appointmentId;
-	    private String status;
-		public Long getAppointmentId() {
-			return appointmentId;
-		}
-		public void setAppointmentId(Long appointmentId) {
-			this.appointmentId = appointmentId;
-		}
-		public String getStatus() {
-			return status;
-		}
-		public void setStatus(String status) {
-			this.status = status;
-		}
-		public UpdateAppointmentStatusDTO(Long appointmentId, String status) {
-			super();
-			this.appointmentId = appointmentId;
-			this.status = status;
-		}
-		public UpdateAppointmentStatusDTO() {
-			
-		}
-		
-	    
+	private Long appointmentId;
+	private String status;
 }

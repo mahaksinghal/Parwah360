@@ -36,5 +36,17 @@ public class SpecializationServiceImpl implements SpecializationService {
 			return dto;
 		}).collect(Collectors.toList());
 	}
+	
+	@Override
+	public String updateSpecialization(Long specializationId, SpecializationDTO dto) {
+		Specialization specialization = specializationRepository.findById(specializationId)
+				.orElseThrow(()-> new RuntimeException("Specialization not found with id "+ specializationId));
+		specialization.setId(specializationId);
+		specialization.setName(dto.getName());
+		specialization.setSpecializationimage(dto.getSpecializationImage());
+		specializationRepository.save(specialization);
+		return "Specialization updated successfully!";
+	}
+
 
 }

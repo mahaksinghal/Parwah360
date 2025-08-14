@@ -11,59 +11,58 @@ import com.app.Entity.User;
 
 @SuppressWarnings("serial")
 public class CustomerUserDetails implements UserDetails {
-    private User customer;
+	private User customer;
 
-    public CustomerUserDetails(User customer) {
-        this.customer = customer;
-    }
+	public CustomerUserDetails(User customer) {
+		this.customer = customer;
+	}
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Arrays.asList(new SimpleGrantedAuthority(customer.getRole().name()));
-    }
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		System.out.println("in customer user details " + new SimpleGrantedAuthority(customer.getRole().name()));
+		return Arrays.asList(new SimpleGrantedAuthority(customer.getRole().name()));
+	}
 
-    @Override
-    public String getPassword() {
-        return customer.getPassword();
-    }
+	@Override
+	public String getPassword() {
+		return customer.getPassword();
+	}
 
-    @Override
-    public String getUsername() {
-        return customer.getEmail();
-    }
+	@Override
+	public String getUsername() {
+		return customer.getEmail();
+	}
 
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
 
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
 
-    @Override
-    public boolean isEnabled() {
-        return true;
-    }
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
 
-    public String getRole() {
-        return customer.getRole().name();
-    }
+	public String getRole() {
+		return customer.getRole().name();
+	}
 
-    public Long getId() {
-        return customer.getId();
-    }
-
+	public Long getId() {
+		return customer.getId();
+	}
 
 	public String getName() {
 		return customer.getName();
 	}
-
 
 }

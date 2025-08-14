@@ -32,7 +32,7 @@ public class JwtUtils {
         key = Keys.hmacShaKeyFor(jwtSecret.getBytes());
     }
 
-    // Generates JWT token for both Customer and Trainer
+    // Generates JWT token 
     public String generateJwtToken(Authentication authentication) {
     	System.out.printf("Generating JWT token for authentication: {}", authentication);
 

@@ -10,5 +10,7 @@ public interface SpecializationService {
 	Specialization addSpecialization(SpecializationDTO specializationDTO);
 
 	List<SpecializationDTO> getAllSpecializations();
+	
+	String updateSpecialization(Long specializationId, SpecializationDTO dto);
 
 }

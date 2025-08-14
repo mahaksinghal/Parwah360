@@ -26,9 +26,6 @@ function CustomerNavbar() {
             style={{ width: "300px", height: "60px", marginRight: "-10px" }}
             className="img-fluid"
           />
-          {/* <span className="d-none d-sm-inline" style={{ fontSize: "2rem", fontWeight: "bold" }}>
-            Aarogya
-          </span> */}
         </NavLink>
 
         {/* Toggler for mobile */}

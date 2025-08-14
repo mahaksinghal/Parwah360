@@ -17,57 +17,58 @@ import org.springframework.web.filter.OncePerRequestFilter;
 
 import com.app.jwt_utils.JwtUtils;
 
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
-
-
 
 @Slf4j
 @Component
+@ToString
 public class JWTRequestFilter extends OncePerRequestFilter {
-    @Autowired
-    private JwtUtils utils;
+	@Autowired
+	private JwtUtils utils;
 
-    @Autowired
-    private UserDetailsService userDetailsService;
+	@Autowired
+	private UserDetailsService userDetailsService;
 
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getRequestURI();
-        // Skip the filter for these endpoints
-        return path.equals("/login") || path.equals("/customer/CreateCustomer");
-    }
+	@Override
+	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+		String path = request.getRequestURI();
+		// Skip the filter for these endpoints
+		return path.equals("/login") || path.equals("/customer/CreateCustomer");
+	}
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-    	System.out.printf("Processing request: {}", request.getRequestURI());
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+		System.out.printf("Processing request: {}", request.getRequestURI());
 
-        String header = request.getHeader("Authorization");
-        if (header == null || !header.startsWith("Bearer ")) {
-        	System.out.printf("Authorization header is missing or does not start with 'Bearer '. Skipping filter for path: {}",
-                    request.getRequestURI());
-            filterChain.doFilter(request, response);
-            return;
-        }
+		String header = request.getHeader("Authorization");
+		if (header == null || !header.startsWith("Bearer ")) {
+			System.out.printf(
+					"Authorization header is missing or does not start with 'Bearer '. Skipping filter for path: {}",
+					request.getRequestURI());
+			filterChain.doFilter(request, response);
+			return;
+		}
 
-        String token = header.substring(7);
-        if (utils.validateJwtToken(token)) {
-            String userName = utils.getUserNameFromJwtToken(token);
+		String token = header.substring(7);
+		if (utils.validateJwtToken(token)) {
+			String userName = utils.getUserNameFromJwtToken(token);
 
-            if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-                UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
-                        userDetails, null, userDetails.getAuthorities());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                System.out.printf("Authentication set for user: {}", userName);
-            } else {
-            	System.out.println("User name is null or authentication is already set.");
-            }
-        } else {
-        	System.out.printf("Invalid JWT token for path: {}", request.getRequestURI());
-        }
+			if (userName != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+				UserDetails userDetails = userDetailsService.loadUserByUsername(userName);
+				UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(
+						userDetails, null, userDetails.getAuthorities());
+				System.out.println("in do filter internal " + authentication.toString());
+				SecurityContextHolder.getContext().setAuthentication(authentication);
+				System.out.printf("Authentication set for user: {}", userName);
+			} else {
+				System.out.println("User name is null or authentication is already set.");
+			}
+		} else {
+			System.out.printf("Invalid JWT token for path: {}", request.getRequestURI());
+		}
 
-        filterChain.doFilter(request, response);
-    }
+		filterChain.doFilter(request, response);
+	}
 }
-

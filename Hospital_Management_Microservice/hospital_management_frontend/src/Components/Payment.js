@@ -12,6 +12,7 @@ import {
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios"; 
 import { toast, ToastContainer } from "react-toastify";
+import "./css/Payment.css"
 import "react-toastify/dist/ReactToastify.css";
 
 export default function Payment() {

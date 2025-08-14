@@ -23,6 +23,6 @@ public interface DoctorService {
 
 	String updateDoctor(Long id, DoctorDTO doctorDTO);
 
-	String updateSpecialization(Long specializationId, SpecializationDTO dto);
+	
 
 }

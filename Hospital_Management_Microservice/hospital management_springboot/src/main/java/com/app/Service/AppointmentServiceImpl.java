@@ -63,16 +63,8 @@ public class AppointmentServiceImpl implements AppointmentService {
 	public Appointment updateAppointmentStatus(UpdateAppointmentStatusDTO dto) {
 		Optional<Appointment> optionalAppointment = appointmentRepository.findById(dto.getAppointmentId());
 
-//		if (!optionalAppointment.isPresent()) {
-//			throw new RuntimeException("Appointment not found with ID: " + dto.getAppointmentId());
-//		}
 
 		Appointment appointment = optionalAppointment.get();
-
-//		// Validate the status
-//		if (!dto.getStatus().equalsIgnoreCase("ACCEPTED") && !dto.getStatus().equalsIgnoreCase("REJECTED")) {
-//			throw new RuntimeException("Invalid status! Allowed values: ACCEPTED, REJECTED");
-//		}
 
 		// Update status
 		appointment.setStatus(dto.getStatus().toUpperCase());
